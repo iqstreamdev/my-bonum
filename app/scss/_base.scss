@@ -1,0 +1,30 @@
+@use "./breakpoints" as bp;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: 1262px;
+    padding: 0 35px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include bp.breakpoint-down(sm) {
+        padding: 0 24px;
+    }
+
+}

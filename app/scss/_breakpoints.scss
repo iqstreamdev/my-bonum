@@ -1,0 +1,47 @@
+@use "sass:map";
+
+$breakpoints-max: (
+    lg: 1199px,
+    md: 1023px,
+    md-sm: 991px,
+    sm: 767px,
+    xs: 575px,
+);
+
+$breakpoints-min: (
+    lg: 1200px,
+    md: 1024px,
+    md-sm: 992px,
+    sm: 768px,
+    xs: 576px,
+);
+
+// max-width
+@mixin breakpoint-down($size) {
+    $width: map.get($breakpoints-max, $size);
+
+    @if $width {
+        @media (max-width: $width) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "Unknown breakpoint: #{$size}. Available: #{map.keys($breakpoints-max)}";
+    }
+}
+
+// min-width
+@mixin breakpoint-up($size) {
+    $width: map.get($breakpoints-min, $size);
+
+    @if $width {
+        @media (min-width: $width) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "Unknown breakpoint: #{$size}. Available: #{map.keys($breakpoints-min)}";
+    }
+}
