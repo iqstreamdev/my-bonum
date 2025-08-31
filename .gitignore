@@ -1,0 +1,11 @@
+.DS_Store
+/.cache
+/.npm-debug.log
+.idea/
+/.sass-cache
+.sass-cache/
+/sxd/
+/build
+/node_modules
+/.package-lock.json
+package-lock.json
