@@ -1,6 +1,6 @@
 @use "../breakpoints" as bp;
 
-button,
+button:not(.hamburger),
 a.btn,
 input[type="button"],
 input[type="submit"],

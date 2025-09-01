@@ -24,5 +24,36 @@
 </head>
 
 <body <?php body_class($customPageClass); ?>>
-    <header></header>
+    <header>
+        <div class="container">
+            <a class="logo" href="<?php echo home_url(); ?>">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="Logo">
+            </a>
+            <div class="menus-wrapper">
+                <div class="main-menu-wrapper">
+                    <?php if ( has_nav_menu('header_menu') ) : 
+                        wp_nav_menu([
+                            'theme_location' => 'header_menu',
+                            'menu_class'     => 'header-main-menu',
+                            'container'      => false,
+                            'fallback_cb'    => false, 
+                        ]);
+                    endif; ?>
+                </div>
+                <div class="second-menu-wrapper">
+                    <?php if ( has_nav_menu('header_menu_2') ) : 
+                        wp_nav_menu([
+                            'theme_location' => 'header_menu_2',
+                            'menu_class'     => 'header-second-menu',
+                            'container'      => false,
+                            'fallback_cb'    => false, 
+                        ]);
+                    endif; ?>
+                </div>
+            </div>
+            <button class="hamburger">
+                <span></span>
+            </button>
+        </div>
+    </header>
     <main>

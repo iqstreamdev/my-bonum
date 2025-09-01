@@ -1,0 +1,150 @@
+@use "../breakpoints" as bp;
+
+footer {
+    margin-top: auto;
+    padding: 64px 0;
+    background-color: var(--color-blue);
+    color: var(--color-white);
+
+    .container {
+        gap: 20px;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .info-wrapper {
+            width: 100%;
+            max-width: 313px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+
+            .logo {
+                img {
+                    max-width: 220px;
+                }
+            }
+        }
+
+        .menus-wrapper {
+            width: calc(100% - 333px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .menu-elem {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: max-content;
+                max-width: 25%;
+                gap: 24px;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: flex-start;
+                    gap: 12px;
+
+                    li {
+
+                        a {
+                            width: 100%;
+                            display: block;
+                            text-decoration: none;
+
+                            &:hover {
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .container {
+            text-align: center;
+        }
+    }
+
+    @include bp.breakpoint-down(md) {
+        padding: 32px 0;
+
+        .container {
+            gap: 32px;
+
+            .info-wrapper {
+                width: 100%;
+                max-width: 100%;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+
+                .text {
+                    max-width: 310px;
+                    text-align: center;
+                }
+
+                .socials,
+                .copyright {
+                    display: none;
+                }
+            }
+
+            .menus-wrapper {
+                width: 100%;
+                gap: 24px;
+                justify-content: space-between;
+                max-width: 520px;
+                margin: 0 auto;
+                flex-wrap: wrap;
+
+                .menu-elem {
+                    width: calc(50% - 12px);
+                    max-width: 200px;
+                    gap: 16px;
+
+                    ul {
+                        gap: 8px;
+                    }
+                }
+            }
+
+            .footer-mobile-elements {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 24px;
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(sm) {
+        .container {
+            flex-direction: column;
+
+            .menus-wrapper {
+                gap: 32px;
+
+                .menu-elem {
+                    width: 100%;
+                    max-width: 100%;
+                    align-items: center;
+
+                    ul {
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}

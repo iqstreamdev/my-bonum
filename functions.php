@@ -25,8 +25,12 @@ add_action('after_setup_theme', 'register_menu');
 if (!function_exists('register_menu')) {
 	function register_menu()
 	{
-		register_nav_menu('header_menu', 'Header menu');
+		register_nav_menu('header_menu', 'Header main menu');
+		register_nav_menu('header_menu_2', 'Header second menu');
 		register_nav_menu('footer_menu_1', 'Footer menu 1');
+		register_nav_menu('footer_menu_2', 'Footer menu 2');
+		register_nav_menu('footer_menu_3', 'Footer menu 3');
+		register_nav_menu('footer_menu_4', 'Footer menu 4');
 	}
 }
 

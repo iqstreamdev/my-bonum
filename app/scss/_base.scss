@@ -19,6 +19,17 @@ body {
     font-size: 14px;
     line-height: 22px;
     font-family: var(--font-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &:has(.hamburger.active) {
+        overflow: hidden;
+    }
+}
+
+main {
+    flex-grow: 1;
 }
 
 .container {
@@ -32,5 +43,35 @@ body {
     @include bp.breakpoint-down(sm) {
         padding: 0 24px;
     }
+}
 
+img {
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+.swiper {
+    opacity: 0;
+    transition-delay: 0.1s;
+
+    .swiper-slide {
+        &:not(:first-child) {
+            display: none;
+        }
+
+        &:first-child {
+            display: flex;
+        }
+    }
+
+    &.swiper-initialized {
+        opacity: 1;
+
+        .swiper-slide {
+            &:not(:first-child) {
+                display: flex;
+            }
+        }
+    }
 }
