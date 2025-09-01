@@ -1,0 +1,43 @@
+@use "../breakpoints" as bp;
+
+button,
+a.btn,
+input[type="button"],
+input[type="submit"],
+.btn {
+    cursor: pointer;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 2px 0 0 rgba(5, 145, 255, 0.1);
+    transition: all 0.3s ease;
+    font-family: var(--font-primary);
+
+    &:hover {
+        background-color: var(--color-white);
+        color: var(--color-primary);
+    }
+
+    &.btn-secondary {
+        background-color: var(--color-white);
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
+    }
+
+    &.btn-secondary:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+    @include bp.breakpoint-down(sm) {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}

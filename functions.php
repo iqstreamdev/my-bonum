@@ -9,7 +9,7 @@ function theme_scripts()
 		wp_enqueue_style($filename, get_template_directory_uri() . '/dist/' . $filename);
 	}
 
-	foreach (glob(get_template_directory() . '/dist/.js') as $file) {
+	foreach (glob(get_template_directory() . '/dist/*.js') as $file) {
 		$filename = substr($file, strrpos($file, '/') + 1);
         wp_enqueue_script($filename, get_template_directory_uri() . '/dist/' . $filename);
 	}

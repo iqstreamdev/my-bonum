@@ -1,10 +1,16 @@
-// Colors
-$color-primary: #2563EB;
-$color-primary-dark: #CBDAFA;
-$color-primary-light: #E9EFFD;
-$color-primary-lighter: #F3F7FF;
-$color-text: #000000;
-$color-text-secondary: rgba(0, 0, 0, 0.65);
-$color-form-placeholder: rgba(0, 0, 0, 0.25);
-$color-form-border: #D9D9D9;
-$color-blue: #112D6A;
+:root {
+    --font-primary: 'Poppins', sans-serif;
+
+    --color-primary: #2563EB;
+    --color-primary-dark: #CBDAFA;
+    --color-primary-light: #E9EFFD;
+    --color-primary-lighter: #F3F7FF;
+
+    --color-text: #000000;
+    --color-text-secondary: rgba(0, 0, 0, 0.65);
+    --color-form-placeholder: rgba(0, 0, 0, 0.25);
+    --color-form-border: #D9D9D9;
+
+    --color-blue: #112D6A;
+    --color-white: #FFFFFF;
+}
