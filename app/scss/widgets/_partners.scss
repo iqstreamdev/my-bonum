@@ -1,0 +1,30 @@
+@use "../breakpoints" as bp;
+
+.partners {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    background-color: var(--color-primary-lighter);
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+
+        h2 {
+            text-align: center;
+        }
+
+        .logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px 64px;
+            max-width: 100%;
+            width: max-content;
+
+            img {
+                max-height: 96px;
+            }
+        }
+    }
+}

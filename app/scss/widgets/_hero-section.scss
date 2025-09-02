@@ -1,0 +1,90 @@
+@use "../breakpoints" as bp;
+
+.hero-section {
+    padding-top: 144px;
+
+    .container {
+        justify-content: space-between;
+        gap: 48px;
+        align-items: center;
+
+        .info {
+            max-width: 414px;
+            width: calc(37% - 24px);
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            h1 {
+                span {
+                    color: var(--color-primary);
+                }
+            }
+
+            .info-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                ul {
+                    li {
+                        color: var(--color-text-secondary);
+                    }
+                }
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        .image {
+            width: calc(63% - 24px);
+
+            img {
+                width: 100%;
+                border-radius: 36px;
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(lg) {
+        padding-top: 108px;
+
+        .container {
+            flex-direction: column;
+            gap: 28px;
+
+            .image {
+                width: 100%;
+                max-width: 100%;
+                order: 0;
+            }
+
+            .info {
+                width: 100%;
+                max-width: 100%;
+                order: 1;
+                gap: 24px;
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(sm) {
+        padding-bottom: 28px;
+
+        .container {
+            gap: 24px;
+
+            .info {
+                gap: 16px;
+
+                .info-wrapper {
+                    gap: 8px;
+                }
+            }
+        }
+    }
+}
