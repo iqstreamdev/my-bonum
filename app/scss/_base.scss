@@ -30,6 +30,7 @@ body {
 
 main {
     flex-grow: 1;
+    overflow: hidden;
 }
 
 section {
@@ -57,6 +58,7 @@ img {
     width: auto;
     height: auto;
     display: block;
+    max-width: 100%;
 }
 
 .swiper {

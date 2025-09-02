@@ -1,0 +1,120 @@
+@use "../breakpoints" as pb;
+
+.main-slider-wrapper {
+    position: relative;
+    width: 100%;
+
+    .main-slider {
+        width: 100%;
+        display: flex;
+
+
+        .swiper-wrapper {
+            margin: 0 auto;
+            height: auto;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 48px;
+        height: 48px;
+        bottom: auto;
+        top: 50%;
+        margin: 0;
+        transform: translateY(-50%);
+
+        &:after {
+            content: none;
+        }
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 23px;
+            height: 36px;
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='23' height='36' viewBox='0 0 23 36' fill='none'><path d='M21.8921 16.8186L0.76094 0.31394C0.705723 0.270469 0.639365 0.243454 0.569486 0.235996C0.499608 0.228539 0.429043 0.240942 0.365897 0.271781C0.30275 0.302621 0.249582 0.350645 0.212499 0.41034C0.175416 0.470035 0.155921 0.538978 0.156254 0.609253V4.23269C0.156254 4.46238 0.264067 4.68269 0.442191 4.82331L17.3171 17.9999L0.442191 31.1764C0.259379 31.3171 0.156254 31.5374 0.156254 31.7671V35.3905C0.156254 35.7046 0.51719 35.878 0.76094 35.6858L21.8921 19.1811C22.0717 19.041 22.217 18.8618 22.317 18.6571C22.4169 18.4524 22.4688 18.2277 22.4688 17.9999C22.4688 17.7721 22.4169 17.5473 22.317 17.3426C22.217 17.1379 22.0717 16.9587 21.8921 16.8186Z' fill='%232563EB'/></svg>") no-repeat center;
+            background-size: contain;
+            position: absolute;
+        }
+
+        &.swiper-button-disabled {
+            display: none;
+        }
+    }
+
+    .swiper-button-prev::before {
+        transform: rotate(180deg);
+    }
+
+    .swiper-button-next {
+        right: auto;
+        left: calc(100% + 16px);
+    }
+
+    .swiper-button-prev {
+        right: calc(100% + 16px);
+        left: auto;
+    }
+
+    @include pb.breakpoint-up(lg) {
+        padding-top: 48px;
+    }
+
+    @include pb.breakpoint-down(xl-lg) {
+        .swiper-button-next {
+            right: -24px;
+            left: auto;
+        }
+
+        .swiper-button-prev {
+            right: auto;
+            left: -24px;
+        }
+
+        .main-slider {
+            width: 94%;
+        }
+    }
+
+    @include pb.breakpoint-down(lg) {
+        .main-slider {
+            width: 95%;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 32px;
+            height: 32px;
+
+            &::before {
+                width: 14px;
+                height: 23px;
+            }
+        }
+
+        .swiper-button-next {
+            right: -16px;
+            left: auto;
+        }
+
+        .swiper-button-prev {
+            right: auto;
+            left: -16px;
+        }
+    }
+
+    @include pb.breakpoint-down(xs) {
+        .main-slider {
+            width: 82%;
+        }
+
+        .swiper-button-next {
+            right: -18px;
+        }
+
+        .swiper-button-prev {
+            left: -18px;
+        }
+    }
+}

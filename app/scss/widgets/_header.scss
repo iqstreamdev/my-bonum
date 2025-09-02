@@ -73,6 +73,17 @@ header {
         }
     }
 
+    @include bp.breakpoint-down(xl-lg) {
+
+        .container {
+            .menus-wrapper {
+                .header-main-menu {
+                    gap: 14px;
+                }
+            }
+        }
+    }
+
     @include bp.breakpoint-down(lg) {
         .container {
             gap: 32px;

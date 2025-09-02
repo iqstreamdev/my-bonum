@@ -1,4 +1,5 @@
 // Global styles
+@forward "fonts";
 @forward "variable";
 @forward "base";
 @forward "typography";
@@ -9,9 +10,12 @@
 // components
 @forward "components/buttons";
 @forward "components/hamburger";
+@forward "components/main-slider";
 
 //widgets
 @forward "widgets/header";
 @forward "widgets/footer";
 @forward "widgets/hero-section";
 @forward "widgets/partners";
+@forward "widgets/call-to-action-two-columnn";
+@forward "widgets/features-section";

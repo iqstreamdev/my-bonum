@@ -7,6 +7,8 @@ export const mainSlider = () => {
 
     sliders.forEach((slider) => {
         const raw = slider.getAttribute('data-slider') || '{}';
+        const buttonPrev = slider.querySelector('.swiper-button-prev');
+        const buttonNext = slider.querySelector('.swiper-button-next');
 
         let sliderOptions = {};
         try {
@@ -17,6 +19,11 @@ export const mainSlider = () => {
 
         const defaultOptions = {
             modules: [Navigation],
+            spaceBetween: 0,
+            navigation: {
+                nextEl: buttonPrev,
+                prevEl: buttonNext
+            }
         };
 
         const opts = { ...defaultOptions, ...sliderOptions };
