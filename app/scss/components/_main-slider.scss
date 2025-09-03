@@ -23,6 +23,7 @@
         top: 50%;
         margin: 0;
         transform: translateY(-50%);
+        display: none;
 
         &:after {
             content: none;
@@ -55,6 +56,14 @@
     .swiper-button-prev {
         right: calc(100% + 16px);
         left: auto;
+    }
+
+    &:has(.swiper-initialized) {
+
+        .swiper-button-prev:not(.swiper-button-disabled),
+        .swiper-button-next:not(.swiper-button-disabled) {
+            display: flex;
+        }
     }
 
     @include pb.breakpoint-up(lg) {

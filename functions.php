@@ -1,5 +1,5 @@
 <?php
-// include get_template_directory() . '/include/custom-post-type.php';
+include get_template_directory() . '/include/custom-post-type.php';
 
 function theme_scripts()
 {
@@ -41,9 +41,9 @@ endif;
 add_filter('show_admin_bar', '__return_false');
 
 
-// if (function_exists('acf_add_options_page')) {
-// 	acf_add_options_page();
-// }
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page();
+}
 
 function defer_parsing_of_js($url) {
 	if (is_admin()) return $url; 

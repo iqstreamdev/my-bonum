@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 
 
 export const mainSlider = () => {
@@ -7,8 +7,11 @@ export const mainSlider = () => {
 
     sliders.forEach((slider) => {
         const raw = slider.getAttribute('data-slider') || '{}';
-        const buttonPrev = slider.querySelector('.swiper-button-prev');
-        const buttonNext = slider.querySelector('.swiper-button-next');
+        const parent = slider.parentElement;
+        const buttonPrev = parent.querySelector('.swiper-button-prev');
+        const buttonNext = parent.querySelector('.swiper-button-next');
+        const autoplayAttr = slider.getAttribute('data-swiper-autoplay');
+
 
         let sliderOptions = {};
         try {
@@ -18,13 +21,20 @@ export const mainSlider = () => {
         }
 
         const defaultOptions = {
-            modules: [Navigation],
+            modules: [Navigation, Autoplay],
             spaceBetween: 0,
             navigation: {
-                nextEl: buttonPrev,
-                prevEl: buttonNext
+                nextEl: buttonNext,
+                prevEl: buttonPrev
             }
         };
+
+        if (autoplayAttr) {
+            defaultOptions.autoplay = {
+                delay: autoplayAttr,
+                disableOnInteraction: false
+            };
+        }
 
         const opts = { ...defaultOptions, ...sliderOptions };
 

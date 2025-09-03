@@ -1,45 +1,52 @@
 </main>
 <?php
-    // $copyright = get_field('copyright', 'options');
-    // $social_links = get_field('social_links', 'options');
-    // $enable_year = get_field('add_year_to_the_copyright', 'options');
+    $copyright = get_field('copyright', 'options');
+    $footer_socials = get_field('footer_socials', 'options');
+    $logo = get_field('footer_logo', 'options');
+    $footer_description = get_field('footer_description', 'options');
 
-    // $script = "%year%";
-    // $pos = strripos($copyright, $script);
-    // $year = ' ' . date('Y') . '';
+    $script = "%year%";
+    $pos = strripos($copyright, $script);
+    $year = ' ' . date('Y') . '';
 
-    // if ($enable_year) {
-    //     if ($pos) {
-    //         $copyright = substr_replace($copyright, $year, $pos, 6);
-    //     }
-    // }
+    if ($pos) {
+        $copyright = substr_replace($copyright, $year, $pos, 6);
+    }
 ?>  
 <footer>
     <div class="container">
         <div class="info-wrapper">
-            <a href="<?= home_url(); ?>" class="logo">
-                <img src="<?= get_template_directory_uri(); ?>/images/logo-light.svg" alt="Logo">
+            <a href="<?= home_url(); ?>" class="logo" aria-label="logo">
+                <?php if (!empty($logo)) {
+                    echo wp_get_attachment_image($logo, 'full', false, ['class' => '']);
+                } else {
+                    echo '<h1>' . get_bloginfo('name') . '</h1>';
+                } ?>
             </a>
-            <p class="paragraph lg text">
-                Connecting families with specialized therapy services for children with special needs.
-            </p>
-            <ul class="socials">
-                <a href="#" target="_blank">
-                    <img src="<?= get_template_directory_uri(); ?>/images/Instagram.svg" alt="Instagram">
-                </a>
-                <a href="#" target="_blank">
-                    <img src="<?= get_template_directory_uri(); ?>/images/Facebook.svg" alt="Facebook">
-                </a>
-                <a href="#" target="_blank">
-                    <img src="<?= get_template_directory_uri(); ?>/images/Linkedin.svg" alt="Linkedin">
-                </a>
-                <a href="#" target="_blank">
-                    <img src="<?= get_template_directory_uri(); ?>/images/X.svg" alt="X">
-                </a>
-            </ul>
-            <p class="paragraph copyright">
-                © 2025 MyBonum. All rights reserved.
-            </p>
+            <?php if (!empty($footer_description)) : ?>
+                <p class="paragraph lg text">
+                    <?php echo $footer_description; ?>
+                </p>
+            <?php endif; ?>
+            <?php if (!empty($footer_socials)) : ?>
+                <ul class="socials">
+                    <?php foreach ($footer_socials as $social) : 
+                        $icon = $social['icon'];  
+                        $url = $social['url'];
+                    ?>
+                        <li>
+                            <a href="<?php echo $url; ?>" target="_blank">
+                                <?php echo wp_get_attachment_image($icon, 'full', false, ['class' => '']); ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+            <?php if (get_field('copyright', 'options')) : ?>
+                <p class="paragraph copyright">
+                    <?php echo $copyright; ?>
+                </p>
+            <?php endif; ?>
         </div>
         <div class="menus-wrapper">
             <?php 
@@ -70,6 +77,11 @@
         </div>
     </div>
 </footer>
-<?php wp_footer(); ?>
+<?php wp_footer(); 
+if (get_option('blog_public') == '1') {
+    $external_html_code_in_footer = get_field('external_html_code_in_footer', 'options');
+    if (!empty($external_html_code_in_footer)) echo $external_html_code_in_footer;
+}
+?>
 </body>
 </html>
