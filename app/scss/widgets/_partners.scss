@@ -1,8 +1,6 @@
 @use "../breakpoints" as bp;
 
 .partners {
-    padding-top: 50px;
-    padding-bottom: 48px;
     background-color: var(--color-primary-lighter);
 
     .container {
@@ -37,8 +35,6 @@
     }
 
     @include bp.breakpoint-down(lg) {
-        padding-top: 32px;
-        padding-bottom: 32px;
 
         .container {
             gap: 24px;

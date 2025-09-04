@@ -1,8 +1,7 @@
 <?php
 include get_template_directory() . '/include/custom-post-type.php';
 
-function theme_scripts()
-{
+function theme_scripts() {
 
 	foreach (glob(get_template_directory() . '/dist/*.css') as $file) {
 		$filename = substr($file, strrpos($file, '/') + 1);

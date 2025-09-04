@@ -28,7 +28,7 @@
         $customPageClass = (is_page() && get_page_uri()) ? get_page_uri() : '';
         $logo = get_field('header_logo', 'options');
     ?>
-
+    <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
 </head>
 
 <body <?php body_class($customPageClass); ?>>

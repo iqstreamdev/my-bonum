@@ -5,7 +5,7 @@
     $autoplay_delay = get_sub_field('autoplay_delay');
 ?>
 
-<section class="partners">
+<section class="partners pb-48">
     <div class="container">
         <?php if (!empty($heading)) : ?>
             <h2 class="h1">

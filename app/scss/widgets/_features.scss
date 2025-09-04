@@ -2,7 +2,6 @@
 
 .features-section {
     background-color: var(--color-primary-lighter);
-    padding-top: 48px;
 
     .container {
         display: flex;
@@ -118,7 +117,6 @@
     }
 
     @include pb.breakpoint-down(lg) {
-        padding-top: 32px;
 
         .container {
             h2 {

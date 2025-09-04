@@ -4,7 +4,7 @@
     $select_background_color = get_sub_field('select_background_color');
 ?>
 
-<section class="section-call-to-action <?php echo $select_background_color; echo count($columns) == 1 ? " one-column" : ""; ?>">
+<section class="section-call-to-action pb-48 <?php echo $select_background_color; echo count($columns) == 1 ? " one-column" : ""; ?>">
     <div class="container">
         <?php if (!empty($heading)) : ?>
             <h2 class="h1">
