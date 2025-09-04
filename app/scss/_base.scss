@@ -36,6 +36,10 @@ main {
 section {
     padding: 64px 0;
 
+    h2 {
+        text-align: center;
+    }
+
     @include bp.breakpoint-down(lg) {
         padding: 32px 0;
     }

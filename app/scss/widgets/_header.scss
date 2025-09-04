@@ -85,6 +85,8 @@ header {
     }
 
     @include bp.breakpoint-down(lg) {
+        padding: 20px 0;
+
         .container {
             gap: 32px;
 

@@ -7,6 +7,7 @@
     .main-slider {
         width: 100%;
         display: flex;
+        padding-right: 1px;
 
 
         .swiper-wrapper {
@@ -39,7 +40,8 @@
             position: absolute;
         }
 
-        &.swiper-button-disabled {
+        &.swiper-button-disabled,
+        &.swiper-button-lock {
             display: none;
         }
     }
@@ -60,14 +62,21 @@
 
     &:has(.swiper-initialized) {
 
-        .swiper-button-prev:not(.swiper-button-disabled),
-        .swiper-button-next:not(.swiper-button-disabled) {
-            display: flex;
+        .swiper-button-prev,
+        .swiper-button-next {
+
+            &:not(.swiper-button-disabled):not(.swiper-button-lock) {
+                display: flex;
+            }
         }
     }
 
-    @include pb.breakpoint-up(lg) {
-        padding-top: 48px;
+    &:has(.swiper-button-lock) {
+        .main-slider {
+            .swiper-wrapper {
+                transform: none !important;
+            }
+        }
     }
 
     @include pb.breakpoint-down(xl-lg) {

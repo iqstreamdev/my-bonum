@@ -7,10 +7,6 @@
         align-items: center;
         gap: 48px;
 
-        h2 {
-            text-align: center;
-        }
-
         .columns {
             width: 100%;
             display: flex;
@@ -34,7 +30,6 @@
                     justify-content: center;
                     width: 96px;
                     height: 96px;
-                    padding: 10px;
                 }
 
                 .info {
@@ -57,6 +52,40 @@
         }
     }
 
+    &.light_blue {
+        background-color: var(--color-primary-lighter);
+
+        .container {
+            .columns {
+                .column {
+                    background-color: var(--color-white);
+                }
+            }
+        }
+    }
+
+    &.one-column {
+        .container {
+            .columns {
+                .column {
+                    width: 100%;
+                    align-items: center;
+
+                    .info {
+                        * {
+                            text-align: center;
+                        }
+                    }
+
+                    .btn {
+                        width: max-content;
+                        min-width: 320px;
+                    }
+                }
+            }
+        }
+    }
+
     @include bp.breakpoint-up(md-sm) {
         padding-bottom: 48px;
     }
@@ -70,11 +99,12 @@
 
                 .column {
                     padding: 20px;
+                    width: calc(50% - 12px);
+                    gap: 17px;
 
                     .icon {
                         width: 64px;
                         height: 64px;
-                        padding: 5px;
                     }
 
                     .info {
@@ -83,6 +113,18 @@
                         .title {
                             font-size: 20px;
                             line-height: 1.4;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.one-column {
+            .container {
+                .columns {
+                    .column {
+                        .btn {
+                            min-width: auto;
                         }
                     }
                 }
@@ -98,13 +140,12 @@
 
                 .column {
                     width: 100%;
-                    padding: 16px;
+                    padding: 15px;
                     gap: 12px;
 
                     .icon {
                         width: 48px;
                         height: 48px;
-                        padding: 5px;
                     }
 
                     .info {

@@ -1,0 +1,105 @@
+@use "../breakpoints" as bp;
+
+.heading-and-two-cards {
+    background-color: var(--color-primary-lighter);
+
+    .container {
+        gap: 48px;
+        flex-direction: column;
+        align-items: center;
+
+        .cards-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                padding: 32px;
+                background-color: var(--color-white);
+                border-radius: 12px;
+                overflow: hidden;
+                border: 1px solid var(--color-primary-dark);
+                width: calc(50% - 16px);
+                gap: 24px;
+
+                .image {
+                    padding-bottom: 51%;
+                    width: 100%;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    position: relative;
+
+                    img {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+                    flex-grow: 1;
+
+                    .btn {
+                        width: 100%;
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(lg) {
+        .container {
+            gap: 24px;
+
+            .cards-wrapper {
+                gap: 16px;
+
+                .card {
+                    width: calc(50% - 8px);
+                    gap: 16px;
+                    padding: 20px;
+
+                    .image {
+                        padding-bottom: 63%;
+                    }
+
+                    .info {
+                        gap: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(sm) {
+        .container {
+            .cards-wrapper {
+                gap: 16px;
+
+                .card {
+                    width: 100%;
+                    padding: 16px;
+
+                    .image {
+                        padding-bottom: 59%;
+                    }
+
+                    .info {
+                        gap: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

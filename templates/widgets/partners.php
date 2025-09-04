@@ -8,7 +8,7 @@
 <section class="partners">
     <div class="container">
         <?php if (!empty($heading)) : ?>
-            <h2 class="h2">
+            <h2 class="h1">
                 Our trusted Partners
             </h2>
         <?php endif; 

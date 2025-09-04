@@ -1,12 +1,13 @@
 <?php
     $heading = get_sub_field('heading');
     $columns = get_sub_field('columns');
+    $select_background_color = get_sub_field('select_background_color');
 ?>
 
-<section class="section-call-to-action">
+<section class="section-call-to-action <?php echo $select_background_color; echo count($columns) == 1 ? " one-column" : ""; ?>">
     <div class="container">
         <?php if (!empty($heading)) : ?>
-            <h2>
+            <h2 class="h1">
                 <?php echo $heading; ?>
             </h2>
         <?php endif;?>
@@ -20,7 +21,7 @@
                 <div class="column">
                     <?php if (!empty($icon)) : ?>
                         <div class="icon">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/home/RocketOutlined.svg" alt="">
+                            <?php echo wp_get_attachment_image($icon, 'full', false, ['class' => '']); ?>
                         </div>
                     <?php endif;?>
                     <div class="info">
