@@ -13,7 +13,7 @@
         <div class="info">
             <?php if (!empty($heading)) : ?>
                 <h1 class="h1">
-                    Your Trusted Therapy Connection for the <span>WHOLE FAMILY</span>
+                    <?php echo $heading; ?>
                 </h1> 
             <?php endif; 
             if (!empty($text) || !empty($list)|| !empty($subheading)) : ?>
