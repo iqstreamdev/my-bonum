@@ -1,0 +1,104 @@
+@use "../breakpoints" as bp;
+
+.our-mission {
+    background: var(--color-primary-lighter);
+
+    .container {
+        gap: 48px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .blockquote {
+        border: 1px solid var(--color-primary-dark);
+        border-radius: 24px;
+        padding: 32px;
+        background: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+
+        .h2 {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            display: block;
+            padding-left: 68px;
+            padding-right: 68px;
+            border-bottom: 1px solid var(--color-primary-dark);
+            text-align: left;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 44px;
+                height: 44px;
+                background: url('../images/our-mission/qd.svg') center no-repeat;
+                background-size: contain;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 24px;
+                width: 44px;
+                height: 44px;
+                background: url('../images/our-mission/qd.svg') center no-repeat;
+                transform: scale(-1);
+                background-size: contain;
+            }
+        }
+
+        .h4 {
+            text-align: center;
+        }
+    }
+
+    @include bp.breakpoint-down(md-sm) {
+        padding: 32px 0 32px;
+
+        .container {
+            gap: 24px;
+        }
+
+        .blockquote {
+            padding: 24px;
+
+            .h2 {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                padding-left: 48px;
+                padding-right: 48px;
+
+                &:before,
+                &:after {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(sm) {
+        padding: 32px 0 32px;
+
+        .blockquote {
+            padding: 24px;
+
+            .h2 {
+                margin-bottom: 16px;
+                padding-bottom: 16px;
+            }
+
+            .h4 {
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+}

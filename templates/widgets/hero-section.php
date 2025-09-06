@@ -13,7 +13,7 @@
         <div class="info">
             <?php if (!empty($heading)) : ?>
                 <h1 class="h1">
-                    Your Trusted Therapy Connection for the <span>WHOLE FAMILY</span>
+                    <?php echo $heading; ?>
                 </h1> 
             <?php endif; 
             if (!empty($text) || !empty($list)|| !empty($subheading)) : ?>
@@ -43,7 +43,7 @@
                 <div class="buttons">
                     <?php if (!empty($primary_button)) : ?>
                         <a href="<?php echo $primary_button['url']; ?>" class="btn" <?php echo $primary_button['target'] ? 'target="_blank"' : ''; ?>>
-                            I have experience with the therapy
+                            <?php echo $primary_button['title']; ?>
                         </a>
                     <?php endif;
                     if (!empty($secondary_button)) : ?>

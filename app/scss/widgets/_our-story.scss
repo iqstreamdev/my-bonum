@@ -1,0 +1,370 @@
+@use "../breakpoints" as bp;
+
+.our-story {
+
+    .h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        gap: 48px;
+    }
+
+    .story-info {
+        text-align: center;
+        border: 1px solid var(--color-primary-dark);
+        border-radius: 24px;
+        padding: 32px;
+        background: var(--color-primary-lighter);
+    }
+
+    .image-with-info {
+        .info-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .image {
+            max-width: 240px;
+            border-radius: 24px;
+            overflow: hidden;
+            max-height: 340px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .info {
+            width: calc(100% - 272px);
+
+            .h2 {
+                margin-bottom: 16px;
+            }
+
+            .h5 {
+                &:not(.blockquote) {
+                    margin-bottom: 24px;
+                }
+
+            }
+
+            .lg {
+                margin-bottom: 24px;
+            }
+        }
+
+        .blockquote {
+            border: 1px solid var(--color-primary-dark);
+            border-radius: 24px;
+            padding: 20px 56px;
+            background: var(--color-primary-lighter);
+            position: relative;
+
+            &.mobile {
+                margin-top: 16px;
+                display: none;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 20px;
+                top: 25px;
+                width: 20px;
+                height: 20px;
+                background: url('../images/our-story/qd.svg') center no-repeat;
+                background-size: contain;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+                width: 20px;
+                height: 20px;
+                background: url('../images/our-story/qd.svg') center no-repeat;
+                transform: scale(-1);
+                background-size: contain;
+            }
+        }
+    }
+
+    .title-with-cards {
+        gap: 24px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            border: 1px solid var(--color-primary-dark);
+            border-radius: 24px;
+            padding: 24px;
+            background: var(--color-primary-lighter);
+
+            .card-image {
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+                border-radius: 12px;
+                overflow: hidden;
+                margin-bottom: 24px;
+                position: relative;
+                padding-bottom: 94%;
+                width: 100%;
+
+                img {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    }
+
+    .text-with-blockquote {
+        border: 1px solid var(--color-primary-dark);
+        border-radius: 24px;
+        padding: 32px;
+        background: var(--color-primary-lighter);
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 24px;
+
+        .h2 {
+            width: 100%;
+            padding: 0 90px;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 27px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 44px;
+                height: 44px;
+                background: url('../images/our-story/qd2.svg') center no-repeat;
+                background-size: contain;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 27px;
+                top: 50%;
+                width: 44px;
+                height: 44px;
+                background: url('../images/our-story/qd2.svg') center no-repeat;
+                transform: scale(-1) translateY(50%);
+                background-size: contain;
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(md-sm) {
+        .container {
+            gap: 24px;
+        }
+
+        .story-info {
+            padding: 24px;
+        }
+
+        .image-with-info {
+            .info {
+                .h2 {
+                    margin-bottom: 12px;
+                }
+
+                .h5 {
+                    &:not(.blockquote) {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .lg {
+                    margin: 0;
+                }
+            }
+
+            .blockquote {
+                &:not(.mobile) {
+                    display: none;
+                }
+
+                &.mobile {
+                    display: flex;
+                }
+            }
+        }
+
+        .title-with-cards {
+            h2 {
+                font-size: 30px;
+            }
+
+            .swiper-slide {
+                padding: 16px;
+
+                .card-image {
+                    margin-bottom: 16px;
+                }
+
+                .h3 {
+                    font-size: 16px;
+                }
+            }
+        }
+
+
+        .text-with-blockquote {
+            padding: 24px;
+            gap: 20px;
+
+            .h4 {
+                font-size: 16px;
+            }
+
+            .h2 {
+                padding: 0 48px;
+
+                &:before,
+                &:after {
+                    width: 24px;
+                    height: 24px;
+                    background-size: contain;
+                    transform: none;
+                }
+
+                &:before {
+                    left: 0;
+                    top: 0;
+                }
+
+                &:after {
+                    bottom: 0;
+                    right: 0;
+                    top: auto;
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(sm) {
+        .image-with-info {
+            .info-wrapper {
+                flex-wrap: wrap;
+            }
+
+            .image {
+                max-width: 100%;
+                overflow: visible;
+                width: 100%;
+                max-height: initial;
+                order: -1;
+            }
+
+            .info {
+                width: 100%;
+
+                .h2 {
+                    margin-bottom: 8px;
+                    font-size: 20px;
+                }
+
+                .h5 {
+                    &:not(.blockquote) {
+                        margin-bottom: 16px;
+                        font-size: 14px;
+                    }
+                }
+
+                .lg {
+                    margin: 0;
+                }
+            }
+
+            .blockquote {
+                &:not(.mobile) {
+                    display: none;
+                }
+
+                &.mobile {
+                    display: flex;
+                    font-size: 14px;
+                    padding: 16px 52px;
+
+                    &:before {
+                        top: 16px;
+                    }
+
+                    &:after {
+                        bottom: 16px;
+                    }
+                }
+            }
+        }
+
+        .title-with-cards {
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        .text-with-blockquote {
+            padding: 16px;
+            gap: 16px;
+
+            .h4 {
+                font-size: 14px;
+            }
+
+            .h2 {
+                padding: 0 48px;
+
+                &:before,
+                &:after {
+                    width: 24px;
+                    height: 24px;
+                    background-size: contain;
+                    transform: none;
+                }
+
+                &:before {
+                    left: 0;
+                    top: 0;
+                }
+
+                &:after {
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
