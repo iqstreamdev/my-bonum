@@ -86,10 +86,6 @@
         }
     }
 
-    @include bp.breakpoint-up(md-sm) {
-        padding-bottom: 48px;
-    }
-
     @include bp.breakpoint-down(lg) {
         .container {
             gap: 24px;

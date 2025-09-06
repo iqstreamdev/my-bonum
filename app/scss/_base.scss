@@ -65,6 +65,18 @@ img {
     max-width: 100%;
 }
 
+.pt-48 {
+    @include bp.breakpoint-up(lg) {
+        padding-top: 48px;
+    }
+}
+
+.pb-48 {
+    @include bp.breakpoint-up(lg) {
+        padding-bottom: 48px;
+    }
+}
+
 .swiper {
     opacity: 0;
     transition-delay: 0.1s;

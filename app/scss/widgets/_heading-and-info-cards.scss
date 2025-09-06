@@ -1,0 +1,96 @@
+@use "../breakpoints" as bp;
+
+.heading-and-info-cards {
+    background-color: var(--color-primary-lighter);
+
+    .container {
+        gap: 48px;
+        flex-direction: column;
+        align-items: center;
+
+        .cards-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            width: 100%;
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                border: 1px solid var(--color-primary-dark);
+                background-color: var(--color-white);
+                width: calc(50% - 12px);
+                border-radius: 24px;
+                padding: 24px;
+
+                .heading {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    width: 100%;
+
+                    .icon {
+                        width: 80px;
+                        height: 80px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 80px;
+                    }
+                }
+
+                .description {
+                    border-top: 1px solid var(--color-primary-dark);
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(lg) {
+        .container {
+            gap: 24px;
+
+            .cards-wrapper {
+                .card {
+                    .heading {
+                        .icon {
+                            width: 48px;
+                            height: 48px;
+                            min-width: 48px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(sm) {
+        .container {
+            .cards-wrapper {
+                gap: 16px;
+
+                .card {
+                    width: 100%;
+                    padding: 20px;
+                    gap: 16px;
+
+                    .heading {
+                        .icon {
+                            width: 40px;
+                            height: 40px;
+                            min-width: 40px;
+                        }
+                    }
+
+                    .description {
+                        padding-top: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

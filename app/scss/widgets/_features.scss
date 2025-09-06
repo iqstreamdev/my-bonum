@@ -2,7 +2,6 @@
 
 .features-section {
     background-color: var(--color-primary-lighter);
-    padding-top: 48px;
 
     .container {
         display: flex;
@@ -32,6 +31,7 @@
                         background-color: var(--color-white);
                         gap: 24px;
                         border-radius: 8px;
+                        border: 1px solid var(--color-primary-dark);
 
                         .image {
                             position: relative;
@@ -118,7 +118,6 @@
     }
 
     @include pb.breakpoint-down(lg) {
-        padding-top: 32px;
 
         .container {
             h2 {

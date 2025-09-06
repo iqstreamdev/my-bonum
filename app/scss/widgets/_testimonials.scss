@@ -1,0 +1,142 @@
+@use "../breakpoints" as bp;
+
+section.testimonials {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+
+        .main-slider-wrapper {
+            .main-slider {
+                .swiper-wrapper {
+                    .swiper-slide {
+                        border-radius: 24px;
+                        border: 1px solid var(--color-primary-dark);
+                        background-color: var(--color-primary-lighter);
+                        padding: 24px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        .heading {
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+
+                            .photo {
+                                width: 80px;
+                                height: 80px;
+                                min-width: 80px;
+                                border-radius: 50px;
+                                object-fit: cover;
+                            }
+
+                            .text {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+
+                                .paragraph {
+                                    color: var(--color-text-secondary);
+                                }
+                            }
+                        }
+
+                        .image {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .h4 {
+                            border-top: 1px solid var(--color-primary-dark);
+                            position: relative;
+                            padding-top: 20px;
+                            padding-left: 60px;
+
+                            img {
+                                position: absolute;
+                                left: 0;
+                                top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-up(md-sm) {
+        .container {
+            .main-slider-wrapper {
+                .main-slider {
+                    &:not(.enabled-on-desktop) {
+                        .swiper-wrapper {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 32px;
+                            justify-content: center;
+
+                            .swiper-slide {
+                                width: calc(50% - 16px);
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(lg) {
+        .container {
+            gap: 24px;
+
+            .main-slider-wrapper {
+                .main-slider {
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            padding: 20px;
+                            gap: 16px;
+
+                            .heading {
+                                gap: 16px;
+                            }
+
+                            .h4 {
+                                padding-top: 16px;
+                                padding-left: 40px;
+
+                                img {
+                                    width: 24px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include bp.breakpoint-down(sm) {
+        .container {
+            .main-slider-wrapper {
+                .main-slider {
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            padding: 16px;
+
+                            .h4 {
+                                padding-top: 56px;
+                                padding-left: 0;
+
+                                img {
+                                    top: 16px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
